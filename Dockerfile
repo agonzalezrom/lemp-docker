@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
         libxml2-dev \
         libzip-dev \
         libonig-dev \
+        librabbitmq-dev \
         graphviz \
         vim \
         curl
@@ -23,6 +24,9 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install zip \
     && docker-php-source delete
+
+RUN pecl install xdebug amqp \
+    && docker-php-ext-enable --ini-name 05-opcache.ini opcache amqp xdebug
 
 # Install Composer
 RUN curl --silent --show-error https://getcomposer.org/installer | php && \
