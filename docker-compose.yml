@@ -4,14 +4,14 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        container_name: ${APP_NAME:?err}-php
+        container_name: ${APP_NAME:?project}-php
         environment:
             SERVICE_NAME: app
             SERVICE_TAGS: dev
             PHP_XDEBUG_ENABLED: 1
             XDEBUG_CONFIG: remote_host=${XDEBUG_REMOTE_HOST} remote_port=${XDEBUG_PORT}
         volumes:
-            - '${WORK_DIRECTORY}/src:/var/www/html'
+            - '${WORK_DIRECTORY}/project:/var/www/html'
             - '${WORK_DIRECTORY}/config/php/local.ini:/usr/local/etc/php/conf.d/local.ini'
             - '${WORK_DIRECTORY}/config/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini'
         networks:
@@ -25,7 +25,7 @@ services:
         links:
             - 'php'
         volumes:
-            - '${WORK_DIRECTORY}/src:/var/www/html'
+            - '${WORK_DIRECTORY}/project:/var/www/html'
             - '${WORK_DIRECTORY}/config/nginx:/etc/nginx/conf.d'
         networks:
             - app-network
