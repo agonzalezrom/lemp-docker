@@ -1,7 +1,7 @@
 # lemp-docker
 A LEMP stack docker container for Laravel/Symfony like apps. 
 
-For use this edit the **.env** file with the name of your project, the ports of nginx server, xdebug and the path of your workspace. by default a mysql database "default" will be created with "root" as user and "default" as password, you can change it in the same **.env** file.
+For use this conainer edit the **.env** file with the name of your project, the ports of nginx server, xdebug and the path of your workspace. by default a mysql database "default" will be created with "root" as user and "default" as password, you can change it in the same **.env** file.
 
 ```bash
 APP_NAME=**project name**

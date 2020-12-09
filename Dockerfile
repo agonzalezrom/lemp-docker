@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y \
         graphviz \
         vim \
         curl \
-        unzip
+        unzip \
+        exiftool
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -24,7 +25,10 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install zip \
-    && docker-php-source delete
+    && docker-php-source delete \
+    && docker-php-ext-configure exif \
+    && docker-php-ext-install exif\
+    && docker-php-ext-enable exif
 
 RUN pecl install xdebug amqp \
     && docker-php-ext-enable --ini-name 05-opcache.ini opcache amqp xdebug
