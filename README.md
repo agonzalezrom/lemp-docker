@@ -10,7 +10,7 @@ MYSQL_ROOT_PASSWORD=default
 MYSQL_PORT=3306
 NGINX_PORT=80
 XDEBUG_PORT=9005
-XDEBUG_REMOTE_HOST=#docker.for.win.localhost (Windows users) or host.docker.internal (MacOS users)
+XDEBUG_REMOTE_HOST=host.docker.internal
 WORK_DIRECTORY=#/path/to/work/directory
 ```
 

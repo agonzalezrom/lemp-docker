@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:8-fpm
 
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
@@ -30,8 +30,8 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install exif\
     && docker-php-ext-enable exif
 
-RUN pecl install xdebug amqp \
-    && docker-php-ext-enable --ini-name 05-opcache.ini opcache amqp xdebug
+RUN pecl install xdebug \
+    && docker-php-ext-enable --ini-name 05-opcache.ini opcache xdebug
 
 # Install Composer
 RUN curl --silent --show-error https://getcomposer.org/installer | php && \
