@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
         librabbitmq-dev \
         graphviz \
         vim \
+        git \
         curl \
         unzip \
         exiftool \
@@ -34,8 +35,10 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install zip \
     && docker-php-source delete \
     && docker-php-ext-configure exif \
-    && docker-php-ext-install exif\
-    && docker-php-ext-enable exif
+    && docker-php-ext-install exif \
+    && docker-php-ext-enable exif \
+    && docker-php-ext-install intl \
+    && docker-php-ext-enable intl
 
 RUN pecl install xdebug \
     && docker-php-ext-enable --ini-name 05-opcache.ini opcache xdebug
