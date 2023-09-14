@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
         libxml2-dev \
         libzip-dev \
         libonig-dev \
+        libgmp-dev \
         librabbitmq-dev \
         graphviz \
         vim \
@@ -38,7 +39,9 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install exif \
     && docker-php-ext-enable exif \
     && docker-php-ext-install intl \
-    && docker-php-ext-enable intl
+    && docker-php-ext-enable intl \
+    && docker-php-ext-install gmp \
+    && docker-php-ext-enable gmp
 
 RUN pecl install xdebug \
     && docker-php-ext-enable --ini-name 05-opcache.ini opcache xdebug
