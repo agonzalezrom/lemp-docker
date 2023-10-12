@@ -1,9 +1,7 @@
 version: '3'
 services:
     php:
-        build:
-            context: .
-            dockerfile: Dockerfile
+        image: agonzalezrom/lemp:latest
         container_name: ${APP_NAME:?project}-php
         environment:
             PHP_XDEBUG_ENABLED: 1
