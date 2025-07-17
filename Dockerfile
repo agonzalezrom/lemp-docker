@@ -9,15 +9,17 @@ RUN apk add --no-cache \
     oniguruma-dev \
     gmp-dev \
     imagemagick-dev \
+    imagemagick \
+    pkgconfig \
     git \
     curl \
     unzip \
     exiftool \
-    imagemagick \
     icu-dev \
     autoconf \
     g++ \
-    make
+    make \
+    linux-headers
 
 # Configure and install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \

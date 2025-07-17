@@ -1,4 +1,3 @@
 .DS_Store
 .idea
-mysql
-mariadb
+mariadb_data
